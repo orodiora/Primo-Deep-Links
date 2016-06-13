@@ -1,5 +1,7 @@
 package com.exlibris.primo.utils;
 
+//import necessary libraries
+
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -22,6 +24,8 @@ public class ShortLinks implements PushToInterface{
             int j;
 
 
+		  //create pop-up window
+
                   response.setContentType("text/html");
                   PrintWriter out = response.getWriter();
                   out.println("<html>");
@@ -32,8 +36,8 @@ public class ShortLinks implements PushToInterface{
                   out.println("</script>"); 
                   out.println("<head>");
                   out.println("<style>");
-		    out.println("body {background-color: #ffffff; color: #32322f;margin: 0px; padding: 0px; font-family: 'Arial Unicode MS',Arial,verdana,serif;font-size: 100%;}");
-	           out.println("h2 {float: left;width:100%; padding: 0.3em 0; color:#606f7f;}");
+		  out.println("body {background-color: #ffffff; color: #32322f;margin: 0px; padding: 0px; font-family: 'Arial Unicode MS',Arial,verdana,serif;font-size: 100%;}");
+	          out.println("h2 {float: left;width:100%; padding: 0.3em 0; color:#606f7f;}");
                   out.println("th {color: #8c8d8c; font-weight: bold; font-size: 120%; white-space: nowrap;}");
                   out.println("select {color: black; font-size: 90%; white-space: nowrap;font-family: 'Arial Unicode MS',Arial,verdana,serif;}");
                   out.println("input {color: black; font-size: 90%; white-space: nowrap;font-family: 'Arial Unicode MS',Arial,verdana,serif;}");
@@ -41,6 +45,8 @@ public class ShortLinks implements PushToInterface{
                   out.println("<title>Search Shortcut</title>");
                   out.println("</head>");
                   out.println("<body>");
+
+
 
 		searchResultFullDoc = new RecordDocDTO[record.length];
 		searchResultFullDoc[record.length-1] = new RecordDocDTO(request ,record[record.length-1],0);
@@ -58,6 +64,8 @@ public class ShortLinks implements PushToInterface{
 		    currentURL += "?" + request.getQueryString();
 		}
 
+
+		//Patterns or PNX IDs
 		Pattern p1 = Pattern.compile("dedupmrg");
 		Pattern p2 = Pattern.compile("61MONASH_AU");
 		Pattern p3 = Pattern.compile("catmsa");
@@ -85,6 +93,8 @@ public class ShortLinks implements PushToInterface{
 		boolean r7 = m7.find();
 		boolean r8 = m8.find();
 
+
+                //Type will vary on code
 		if (r1){
 		   // Dedup record
 	          out.println("Copy this URL: (Dedup'd Record'");
